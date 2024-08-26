@@ -11,17 +11,39 @@ const router = express.Router();
 
 // Home route is unprotected
 router.get('/', (req, res) => {
+    console.log('Home route accessed');
     res.send('Welcome to the Food Delivery App API');
 });
 
 // Apply the protect middleware to routes that require authentication
-router.use('/auth', authRoutes);
-router.use('/menu-items', protect, menuItemRoutes);
-router.use('/orders', protect, orderRoutes);
-router.use('/restaurants', restaurantRoutes);
-router.use('/addresses', protect, (req, res) => {
-    res.send('Address routes are protected');
-});
-router.use('/payment', protect, paymentRoutes);
+router.use('/auth', (req, res, next) => {
+    console.log('Auth route accessed');
+    next();
+}, authRoutes);
+
+router.use('/menu-items', protect, (req, res, next) => {
+    console.log('Menu Items route accessed');
+    next();
+}, menuItemRoutes);
+
+router.use('/orders', protect, (req, res, next) => {
+    console.log('Orders route accessed');
+    next();
+}, orderRoutes);
+
+router.use('/restaurants', (req, res, next) => {
+    console.log('Restaurants route accessed');
+    next();
+}, restaurantRoutes);
+
+router.use('/addresses', protect, (req, res, next) => {
+    console.log('Addresses route accessed');
+    next();
+}, addressRoutes);
+
+router.use('/payment', protect, (req, res, next) => {
+    console.log('Payment route accessed');
+    next();
+}, paymentRoutes);
 
 export default router;
