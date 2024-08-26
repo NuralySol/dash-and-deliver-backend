@@ -24,27 +24,27 @@ This is the backend of the Food Delivery App built using the MERN stack.
 
 - Unprotected routes
 
-| Method | Endpoint             | Description               |
-| ------ | -------------------- | ------------------------- |
-| GET    | `/`                  | Welcome message           |
-| POST   | `/api/auth/register` | Register a new user       |
-| POST   | `/api/auth/login`    | Log in a user             |
-| GET    | `/api/restaurants`   | Get a list of restaurants |
+| Method | Endpoint         | Description               |
+| ------ | ---------------- | ------------------------- |
+| GET    | `/`              | Welcome message           |
+| POST   | `/auth/register` | Register a new user       |
+| POST   | `/auth/login`    | Log in a user             |
+| GET    | `/restaurants`   | Get a list of restaurants |
 
 - Protected routes
 
-| Method | Endpoint                             | Description                                    |
-| ------ | ------------------------------------ | ---------------------------------------------- |
-| GET    | `/api/menu-items`                    | Get all menu items                             |
-| POST   | `/api/menu-items`                    | Create a new menu item                         |
-| GET    | `/api/orders`                        | Get all orders for the authenticated user      |
-| POST   | `/api/orders`                        | Create a new order                             |
-| GET    | `/api/addresses`                     | Get all addresses for the authenticated user   |
-| POST   | `/api/addresses`                     | Create a new address                           |
-| GET    | `/api/addresses/:id`                 | Get a specific address by ID                   |
-| PUT    | `/api/addresses/:id`                 | Update an existing address by ID               |
-| DELETE | `/api/addresses/:id`                 | Delete an address by ID                        |
-| POST   | `/api/payment/create-payment-intent` | Create a payment intent for a specific amount. |
+| Method | Endpoint                         | Description                                    |
+| ------ | -------------------------------- | ---------------------------------------------- |
+| GET    | `/menu-items`                    | Get all menu items                             |
+| POST   | `/menu-items`                    | Create a new menu item                         |
+| GET    | `/orders`                        | Get all orders for the authenticated user      |
+| POST   | `/orders`                        | Create a new order                             |
+| GET    | `/addresses`                     | Get all addresses for the authenticated user   |
+| POST   | `/addresses`                     | Create a new address                           |
+| GET    | `/addresses/:id`                 | Get a specific address by ID                   |
+| PUT    | `/addresses/:id`                 | Update an existing address by ID               |
+| DELETE | `/addresses/:id`                 | Delete an address by ID                        |
+| POST   | `/payment/create-payment-intent` | Create a payment intent for a specific amount. |
 
 ## Contributing
 
@@ -94,21 +94,25 @@ This markdown documentation should serve as a comprehensive guide for developers
 <details>
 
 ### DoorDash API Integration
+
 - **Explore DoorDash API**: Understand the endpoints and integrate them into your backend.
 - **Add Routes**: Create routes to fetch restaurant data from DoorDash and manage orders.
 - **Error Handling**: Implement robust error handling and logging for DoorDash API calls.
 
 ### Google Maps API Integration (Fallback)
+
 - **Explore Google Maps Places API**: Use this API to fetch restaurant data if DoorDash is not available.
 - **API Key Setup**: Securely set up your Google Maps API key and integrate it into your backend.
 - **New Endpoints**: Add endpoints to serve restaurant data fetched from Google Maps.
 
 ### Enhance Stripe Integration
+
 - **Webhook Support**: Implement Stripe webhooks to handle events like successful payments.
 - **Subscription Features**: Consider adding support for subscription payments if needed.
 - **Error Handling**: Improve error handling for better reliability and user experience.
 
 ### Testing and Documentation
+
 - **Unit and Integration Tests**: Ensure all new features are thoroughly tested.
 - **Update Documentation**: Reflect new integrations and endpoints in the API documentation.
 - **Load Testing**: Validate the backend’s performance under load with the new integrations.
