@@ -4,8 +4,8 @@ import menuItemRoutes from './menuItemRoutes.js';
 import orderRoutes from './orderRoutes.js';
 import restaurantRoutes from './restaurantRoutes.js';
 import addressRoutes from './addressRoutes.js';
-import paymentRoutes from './paymentRoutes.js'; // Import the payment routes
-import { protect } from '../middleware/authMiddleware.js'; // Import the protect middleware
+import paymentRoutes from './paymentRoutes.js'; 
+import { protect } from '../middleware/authMiddleware.js'; 
 
 const router = express.Router();
 
@@ -16,10 +16,10 @@ router.get('/', (req, res) => {
 
 // Apply the protect middleware to routes that require authentication
 router.use('/auth', authRoutes);
-router.use('/menu-items', protect, menuItemRoutes);  // Protecting menu item routes
-router.use('/orders', protect, orderRoutes);         // Protecting order routes
-router.use('/restaurants', restaurantRoutes);        // Restaurant routes can be unprotected or protected based on your use case
-router.use('/addresses', protect, addressRoutes);    // Protecting address routes
-router.use('/payment', protect, paymentRoutes);      // Protecting payment routes
+router.use('/menu-items', protect, menuItemRoutes);  
+router.use('/orders', protect, orderRoutes);        
+router.use('/restaurants', restaurantRoutes);       
+router.use('/addresses', protect, addressRoutes);    
+router.use('/payment', protect, paymentRoutes);      
 
 export default router;
