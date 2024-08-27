@@ -12,6 +12,7 @@ This is the backend of the Food Delivery App built using the MERN stack.
 - Axios
 - Mongoose
 - Bcrypt
+- Dotenv
 
 ## Installation
 
