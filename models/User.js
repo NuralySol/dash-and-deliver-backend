@@ -11,7 +11,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     }
-}, { timestamps: true });
+}, { timestamps: true }); // maybe remove the timestamp
 
 // Middleware to hash the password before saving the user document
 UserSchema.pre('save', async function (next) {
