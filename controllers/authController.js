@@ -21,7 +21,7 @@ export const registerUser = async (req, res) => {
         res.status(201).json({
             _id: user._id,
             username: user.username,
-            token: generateToken(user._id),
+            token: generateToken(user._id, user.username), // Include username in the token
         });
     } else {
         res.status(400).json({ message: 'Invalid user data' });
@@ -38,9 +38,9 @@ export const loginUser = async (req, res) => {
         res.json({
             _id: user._id,
             username: user.username,
-            token: generateToken(user._id),
+            token: generateToken(user._id, user.username), // Include username in the token
         });
     } else {
-        res.status(401).json({ message: 'Invalid name or password' });
+        res.status(401).json({ message: 'Invalid username or password' });
     }
 };
