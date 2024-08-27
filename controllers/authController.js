@@ -3,9 +3,9 @@ import generateToken from '../utils/generateToken.js';
 
 // Controller function to handle user registration
 export const registerUser = async (req, res) => {
-    const { name, password } = req.body;
+    const { username, password } = req.body;
 
-    const userExists = await User.findOne({ name });
+    const userExists = await User.findOne({ username });
 
     if (userExists) {
         return res.status(400).json({ message: 'User already exists' });
@@ -13,14 +13,14 @@ export const registerUser = async (req, res) => {
 
     // Create a new user
     const user = await User.create({
-        name,
+        username,
         password,
     });
 
     if (user) {
         res.status(201).json({
             _id: user._id,
-            name: user.name,
+            username: user.username,
             token: generateToken(user._id),
         });
     } else {
@@ -30,14 +30,14 @@ export const registerUser = async (req, res) => {
 
 // Controller function to handle user login
 export const loginUser = async (req, res) => {
-    const { name, password } = req.body;
+    const { username, password } = req.body;
 
-    const user = await User.findOne({ name });
+    const user = await User.findOne({ username });
 
     if (user && (await user.matchPassword(password))) {
         res.json({
             _id: user._id,
-            name: user.name,
+            username: user.username,
             token: generateToken(user._id),
         });
     } else {

@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 
 // Define a simplified User schema with only name and password fields
 const UserSchema = new mongoose.Schema({
-    name: {
+    username: {
         type: String,
         required: true,
     },
