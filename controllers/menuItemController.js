@@ -6,13 +6,12 @@ export const getMenuItems = async (req, res) => {
 };
 
 export const createMenuItem = async (req, res) => {
-    const { restaurant, item_name, price, image } = req.body;
+    const { restaurant, item_name, price } = req.body;
 
     const menuItem = new MenuItem({
         restaurant,
         item_name,
         price,
-        image,
     });
 
     const createdMenuItem = await menuItem.save();
