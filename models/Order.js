@@ -11,20 +11,9 @@ const OrderSchema = new mongoose.Schema({
         ref: 'Restaurant',
         required: true,
     },
-    status: {
-        type: String,
-        required: true,
-    },
     total_amount: {
         type: Number,
         required: true,
-    },
-    delivery_fee: {
-        type: Number,
-    },
-    order_date_time: {
-        type: Date,
-        default: Date.now,
     },
 }, { timestamps: true });
 

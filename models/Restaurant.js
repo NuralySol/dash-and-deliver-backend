@@ -9,10 +9,11 @@ const RestaurantSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    phone: {
+    image: {
         type: String,
         required: true,
-    },
+    }
+    
 }, { timestamps: true });
 
 const Restaurant = mongoose.model('Restaurant', RestaurantSchema);

@@ -6,14 +6,7 @@ const AddressSchema = new mongoose.Schema({
         ref: 'User',
         required: true,
     },
-    unit_number: String,
-    street_number: String,
-    address_line_1: {
-        type: String,
-        required: true,
-    },
-    address_line_2: String,
-    city: {
+    address_line: {
         type: String,
         required: true,
     },

@@ -14,9 +14,6 @@ const MenuItemSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    image: {
-        type: String,
-    },
 }, { timestamps: true });
 
 const MenuItem = mongoose.model('MenuItem', MenuItemSchema);

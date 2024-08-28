@@ -19,12 +19,12 @@ export const getRestaurants = async (req, res) => {
 
 export const createRestaurant = async (req, res) => {
     try {
-        const { name, address, phone } = req.body;
+        const { name, address, image } = req.body;
 
         const response = await axios.post(`${API_URL}/restaurants`, {
             name,
             address,
-            phone,
+            image,
         });
 
         const createdRestaurant = response.data;
