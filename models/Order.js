@@ -11,6 +11,11 @@ const OrderSchema = new mongoose.Schema({
         ref: 'Restaurant',
         required: true,
     },
+    items: [{ 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'MenuItem',
+        required: true,
+    }],
     total_amount: {
         type: Number,
         required: true,
@@ -18,5 +23,4 @@ const OrderSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 const Order = mongoose.model('Order', OrderSchema);
-
 export default Order;
