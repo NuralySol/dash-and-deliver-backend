@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const MenuItemSchema = new mongoose.Schema({
     restaurant: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Restaurant',
+        ref: 'restaurants',  // Assuming you have a Restaurant collection
         required: true,
     },
     item_name: {
@@ -16,7 +16,6 @@ const MenuItemSchema = new mongoose.Schema({
     },
 }, { timestamps: true });
 
-const MenuItem = mongoose.model('MenuItem', MenuItemSchema);
+const MenuItem = mongoose.model('menuitem', MenuItemSchema);
 
 export default MenuItem;
-
