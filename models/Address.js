@@ -12,7 +12,7 @@ const addressSchema = new mongoose.Schema({
     },
     city: {
         type: String,
-        required: false, // Make the city field optional
+        required: false,
     }
 }, { timestamps: true });
 

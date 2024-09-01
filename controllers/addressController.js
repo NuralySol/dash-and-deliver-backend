@@ -75,7 +75,7 @@ export const deleteAddress = async (req, res) => {
         const address = await Address.findById(req.params.id);
 
         if (address && address.user.toString() === req.user._id.toString()) {
-            await address.remove();
+            await Address.deleteOne({ _id: req.params.id });
             res.status(200).json({ message: 'Address removed' });
         } else {
             res.status(404).json({ message: 'Address not found or not authorized' });
