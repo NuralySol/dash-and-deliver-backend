@@ -1,7 +1,6 @@
 import User from '../models/User.js';
 import generateToken from '../utils/generateToken.js';
 
-// Controller function to handle user registration
 export const registerUser = async (req, res) => {
     const { username, password } = req.body;
 
@@ -11,7 +10,6 @@ export const registerUser = async (req, res) => {
         return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Create a new user
     const user = await User.create({
         username,
         password,
@@ -21,14 +19,13 @@ export const registerUser = async (req, res) => {
         res.status(201).json({
             _id: user._id,
             username: user.username,
-            token: generateToken(user._id, user.username), // Include username in the token
+            token: generateToken(user._id, user.username), 
         });
     } else {
         res.status(400).json({ message: 'Invalid user data' });
     }
 };
 
-// Controller function to handle user login
 export const loginUser = async (req, res) => {
     const { username, password } = req.body;
 
@@ -38,7 +35,7 @@ export const loginUser = async (req, res) => {
         res.json({
             _id: user._id,
             username: user.username,
-            token: generateToken(user._id, user.username), // Include username in the token
+            token: generateToken(user._id, user.username), 
         });
     } else {
         res.status(401).json({ message: 'Invalid username or password' });

@@ -1,15 +1,14 @@
 import express from 'express';
 import { createRestaurant } from '../controllers/restaurantController.js';
 import { protect } from '../middleware/authMiddleware.js';
-import { restaurants } from '../data/dummyData.js';  // Import the dummy data
+import { restaurants } from '../data/dummyData.js';  
 
 const router = express.Router();
 
-// GET /restaurants - Return the dummy restaurant data
 router.route('/')
     .get((req, res) => {
-        res.json(restaurants);  // Respond with the dummy data
+        res.json(restaurants);  
     })
-    .post(protect, createRestaurant);  // POST request to create a new restaurant, protected route
+    .post(protect, createRestaurant);  
 
 export default router;
