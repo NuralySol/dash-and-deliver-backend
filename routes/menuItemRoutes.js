@@ -5,7 +5,6 @@ import { getMenuItems, createMenuItem } from '../controllers/menuItemController.
 
 const router = express.Router();
 
-// Route to get dummy menu items
 router.get('/', (req, res) => {
     try {
         res.json(menuItems);
@@ -14,10 +13,7 @@ router.get('/', (req, res) => {
     }
 });
 
-// Keeping the POST route the same with protect middleware
 router.post('/', protect, (req, res) => {
-    // If you want to allow creating menu items dynamically later, you can keep this route.
-    // Currently, it just sends a placeholder response since we're using dummy data for now.
     res.status(403).json({ message: 'POST operation not supported on this endpoint' });
 });
 

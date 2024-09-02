@@ -1,6 +1,5 @@
 import Address from '../models/Address.js';
 
-// Get all addresses for the authenticated user
 export const getAddresses = async (req, res) => {
     try {
         const addresses = await Address.find({ user: req.user._id });
@@ -11,16 +10,14 @@ export const getAddresses = async (req, res) => {
     }
 };
 
-// Create a new address for the authenticated user
 export const createAddress = async (req, res) => {
     try {
         const { address_line, city } = req.body;
 
-        // Create a new address associated with the logged-in user
         const address = new Address({
             user: req.user._id,
             address_line,
-            city // Optional field
+            city 
         });
 
         const createdAddress = await address.save();
@@ -31,7 +28,6 @@ export const createAddress = async (req, res) => {
     }
 };
 
-// Get a specific address by ID for the authenticated user
 export const getAddressById = async (req, res) => {
     try {
         const address = await Address.findById(req.params.id);
@@ -47,7 +43,6 @@ export const getAddressById = async (req, res) => {
     }
 };
 
-// Update an existing address for the authenticated user
 export const updateAddress = async (req, res) => {
     try {
         const { address_line, city } = req.body;
@@ -56,7 +51,7 @@ export const updateAddress = async (req, res) => {
 
         if (address && address.user.toString() === req.user._id.toString()) {
             address.address_line = address_line || address.address_line;
-            address.city = city || address.city; // City is optional
+            address.city = city || address.city; 
 
             const updatedAddress = await address.save();
             res.status(200).json(updatedAddress);
@@ -69,7 +64,6 @@ export const updateAddress = async (req, res) => {
     }
 };
 
-// Delete an address for the authenticated user
 export const deleteAddress = async (req, res) => {
     try {
         const address = await Address.findById(req.params.id);
