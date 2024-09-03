@@ -98,12 +98,7 @@ This markdown documentation should serve as a comprehensive guide for developers
 - **Explore DoorDash API**: Understand the endpoints and integrate them into your backend.
 - **Add Routes**: Create routes to fetch restaurant data from DoorDash and manage orders.
 - **Error Handling**: Implement robust error handling and logging for DoorDash API calls.
-
-### Google Maps API Integration (Fallback)
-
-- **Explore Google Maps Places API**: Use this API to fetch restaurant data if DoorDash is not available.
-- **API Key Setup**: Securely set up your Google Maps API key and integrate it into your backend.
-- **New Endpoints**: Add endpoints to serve restaurant data fetched from Google Maps.
+- **Plan B**: Use the static dummy data to simulate the restaurant and menu-item API calls.
 
 ### Enhance Stripe Integration
 
@@ -119,4 +114,4 @@ This markdown documentation should serve as a comprehensive guide for developers
 
 </details>
 
-test build dev Alpha
+For more details please see the dash-and-deliver-frontend for README.md file.
