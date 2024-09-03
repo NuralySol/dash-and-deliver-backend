@@ -5,6 +5,7 @@ import orderRoutes from './orderRoutes.js';
 import restaurantRoutes from './restaurantRoutes.js';
 import addressRoutes from './addressRoutes.js';
 import paymentRoutes from './paymentRoutes.js';
+import favoriteRoutes from './favoriteRoutes.js';
 import { protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
@@ -36,5 +37,7 @@ router.use('/addresses', protect, (req, res, next) => {
 router.use('/payment', protect, (req, res, next) => {
     next();
 }, paymentRoutes);
+
+router.use('/favorites', favoriteRoutes);
 
 export default router;

@@ -9,7 +9,11 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-    }
+    },
+    favorites: [{ 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Restaurant' 
+    }],
 }, { timestamps: true }); 
 
 UserSchema.pre('save', async function (next) {
