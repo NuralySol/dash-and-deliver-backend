@@ -1,5 +1,5 @@
 
-import User from '../models/userModel.js';
+import User from '../models/User.js';
 
 export const toggleFavoriteRestaurant = async (req, res) => {
     const { userId } = req.params;

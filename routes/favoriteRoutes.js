@@ -1,6 +1,6 @@
 
 import express from 'express';
-import { toggleFavoriteRestaurant, getFavoriteRestaurants } from '../controllers/favoritesController.js';
+import { toggleFavoriteRestaurant, getFavoriteRestaurants } from '../controllers/favoriteController.js';
 import { protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
